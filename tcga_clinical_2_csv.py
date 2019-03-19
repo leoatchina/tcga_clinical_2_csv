@@ -5,6 +5,7 @@ import os
 import sys
 import re
 import csv
+import collections
 
 try:
     import xml.etree.cElementTree as ET
@@ -110,10 +111,13 @@ if __name__ == "__main__":
         columns = set()
         for each in dict_lst:
             columns = columns.union(set(list(each.keys())))
-        for each in dict_lst:
-            diff_keys = columns.difference(set(list(each.keys())))
+        for i in range(len(dict_lst)):
+            tmp = dict_lst[i]
+            diff_keys = columns.difference(set(list(tmp.keys())))
             for key in diff_keys:
-                each[key] = ''
+                tmp[key] = ''
+            dict_lst[i] = collections.OrderedDict(sorted(tmp.items()))
+
         # write header
         with open(out_csv, 'w') as f:  # Just use 'w' mode in 3.x
             w = csv.DictWriter(f, dict_lst[0].keys())
