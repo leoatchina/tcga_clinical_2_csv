@@ -96,7 +96,7 @@ if __name__ == "__main__":
         os.mkdir(basedir)
     if os.path.isfile(out_csv):
         os.remove(out_csv)
-    find_xml = "find {} | grep .xml$".format(input_dir)
+    find_xml = "find {} | grep -v omv | grep .xml$".format(input_dir)
     cnt = 0
     xml_list = return_cmd_list(find_xml)
     if len(xml_list) == 0:
