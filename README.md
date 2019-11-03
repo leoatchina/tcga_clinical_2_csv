@@ -5,7 +5,7 @@
 
 ## 使用（不支持windows)
 把下载的xml文件放到`clin`文件夹下（随便放，多深的子目录都能发现)，`python3 tcga_clinical_2_csv.py`，会在当前目录下生成`merge.csv`。
-当然你可以指定文件夹和合并文件 ，  `python3 tcga_clinical_2_csv.py  BRCA BRCA.csv`
+当然你可以指定文件夹和合并文件 ，  `python3 tcga_clinical_2_csv.py  xxx/testdir test.csv`
 
 ## 大体流程
 1. 用`*unix`系统的`find`命令提取所有目标文件夹下的`xml`文件
